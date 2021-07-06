@@ -39,7 +39,7 @@ export const obtenerPokemonesAccion = () => async (dispatch, getState) => {
     }
 
     try {
-        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon?offset=0&limit20`)
+        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon?offset=0&limit10`)
         dispatch({
             type: OBTENER_POKEMONES_EXITO,
             payload: res.data
@@ -108,7 +108,7 @@ export const unPokeDetalleAccion = (url) => async (dispatch) => {
     if (localStorage.getItem(url)) {
         dispatch({
             type: POKE_INFO_EXITO,
-            payload: JSON.parse(localStorage.setItem(url))
+            payload: JSON.parse(localStorage.getItem(url))
         })
         return
     }

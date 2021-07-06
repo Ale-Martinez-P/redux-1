@@ -18,11 +18,11 @@ const Detalle = () => {
     //console.log(pokemon) <p className="card-text">Tipos: {pokemon.tipos.name}</p>
 
     return pokemon ?  (
-        <div className="card mt-5 text-center">
+        <div className="card mt-3 text-center">
             <div className="card-body">
                 <img src={pokemon.foto} alt="" className="img-fluid"/>
                 <div className="card-title text-uppercase">{pokemon.nombre}</div>
-                <p className="card-text">Alto: {pokemon.alto} | Ancho: {pokemon.alto}</p>
+                <p className="card-text">Alto: {pokemon.alto} | Ancho: {pokemon.ancho}</p>
                 
             </div>
         </div>

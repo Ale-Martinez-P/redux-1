@@ -13,10 +13,23 @@ const Pokemones = () => {
 
     return (
         <div className="row">
-            <div className="col-md-5">
+            <div className="col-md-6">
                 <h3>Lista de Pokemones</h3>
-                <div className="d-flex justify-content-start d-grid gap-2">
 
+                <ul className="list-group mt-3">
+                    {
+                        pokemones.map(item => (
+                            <li key={item.name} className="list-group-item text-uppercase">
+                                {item.name}
+                                <button className="btn btn-info float-end"
+                                    onClick={() => dispatch(unPokeDetalleAccion(item.url))}
+                                >Info</button>
+                            </li>
+                        ))
+                    }
+                </ul>
+                <br/>
+                <div className="d-flex justify-content-start d-grid gap-2">
                     {
                         pokemones.length === 0 &&
                         <button onClick={() => dispatch(obtenerPokemonesAccion())}
@@ -32,26 +45,12 @@ const Pokemones = () => {
                         <button onClick={() => dispatch(siguientePokemonAccion())}
                             className="btn btn-success btn-sm">Siguiente</button>
                     }
-
                 </div>
-
-                <ul className="list-group mt-3">
-                    {
-                        pokemones.map(item => (
-                            <li key={item.name} className="list-group-item text-uppercase">
-                                {item.name}
-                                <button className="btn btn-info float-end"
-                                onClick={() => dispatch(unPokeDetalleAccion(item.url))}
-                                >Info</button>
-                            </li>
-                        ))
-                    }
-                </ul>
             </div>
             <div className="col-md-5">
                 <h3>Detalle del Pokémon</h3>
-                <Detalle/>
-            </div> 
+                <Detalle />
+            </div>
         </div>
     )
 }
